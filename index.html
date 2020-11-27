@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="main.js"></script>
+    <title>Smart Home</title>
+</head>
+<body>
+    <div class="settings">
+        <div class="main-info">
+            <h2>These are your current settings. To change, first select the item, then start and finish times and finally click SAVE button.</h2>
+        </div>
+        <div class="item-list">
+            <label for="room">Choose the item:</label>
+            <select id="room" name="room">
+                <option id="living-room-text" value="livingRoomLamp">Living room lamp</option>
+                <option id="bed-one-text" value="bedOneDeskLamp">Bedroom one desk lamp</option>
+                <option id="bed-two-text" value="bedTwoFloorLamp">Bedroom two floor lamp</option>
+                <option id="bathroom-fan-text" value="bathroomFan">Bathroom fan</option>
+                <option id="washer-text" value="washer">Washer</option>
+                <option id="dryer-text" value="dryer">Dryer</option>
+                <option id="front-door-text" value="frontDoor">Front door light</option>
+                <option id="back-door-text" value="backDoor">Back door light</option>
+                <option id="garage-door-text" value="garageDoor">Garage door light</option>
+                <option id="kitchen-fan-text" value="kitchenFan">Kitchen fan</option>
+                <option id="dining-room-text" value="diningRoomLight">Dining room light</option>
+            </select>
+        </div>
+        <div class="time-settings">
+            <label for="time-lamp">Time on:</label>
+            <input type="time" id="time-element-on" required>
+            <label for="time-lamp">Time off:</label>
+            <input type="time" id="time-element-off" required>
+            
+        </div>
+        <div class="buttons">
+            <button id="save-settings">SAVE</button>
+            <button id="save-settings">RESET</button>
+        </div>
+    </div>
+    <div class="grid-container">
+        <div class="grid-item"><p>Living room lamp is currently <span id="livingRoomLampStatus">OFF</span></p><img src="assets/lightoff.png" alt="light off" id="livingRoomLampboff"><img src="assets/lighton.png" alt="light on" id="livingRoomLampbon"><p>Active <span id="livingRoomLampTon"> -- : --</span> to <span id="livingRoomLampToff"> -- : --</span></p></div>
+        <div class="grid-item"><p>Bedroom one desk lamp is currently <span id="bedOneDeskLampStatus">OFF</span></p><img src="assets/lightoff.png" alt="light off" id="bedOneDeskLampboff"><img src="assets/lighton.png" alt="light on" id="bedOneDeskLampbon"><p>Active <span id="bedOneDeskLampTon"> -- : --</span> to <span id="bedOneDeskLampToff"> -- : --</span></p></div>
+        <div class="grid-item"><p>Bedroom two floor lamp is currently <span id="bedTwoFloorLampStatus">OFF</span></p><img src="assets/lightoff.png" alt="light off" id="bedTwoFloorLampboff"><img src="assets/lighton.png" alt="light on" id="bedTwoFloorLampbon"><p>Active <span id="bedTwoFloorLampTon"> -- : --</span> to <span id="bedTwoFloorLampToff"> -- : --</span></p></div>
+        <div class="grid-item"><p>Bathroom fan is currently <span id="bathroomFanStatus">OFF</span></p><img src="assets/lightoff.png" alt="light off" id="bathroomFanboff"><img src="assets/lighton.png" alt="light on" id="bathroomFanbon"><p>Active <span id="bathroomFanTon"> -- : --</span> to <span id="bathroomFanToff"> -- : --</span></p></div>
+        <div class="grid-item"><p>Washer is currently <span id="washerStatus">OFF</span></p><img src="assets/lightoff.png" alt="light off" id="washerboff"><img src="assets/lighton.png" alt="light on" id="washerbon"><p>Active <span id="washerTon"> -- : --</span> to <span id="washerToff"> -- : --</span></p></div>
+        <div class="grid-item"><p>Dryer is currently <span id="dryerStatus">OFF</span></p><img src="assets/lightoff.png" alt="light off" id="dryerboff"><img src="assets/lighton.png" alt="light on" id="dryerbon"><p>Active <span id="dryerTon"> -- : --</span> to <span id="dryerToff"> -- : --</span></p></div>
+        <div class="grid-item"><p>Front door light is currently <span id="frontDoorStatus">OFF</span></p><img src="assets/lightoff.png" alt="light off" id="frontDoorboff"><img src="assets/lighton.png" alt="light on" id="frontDoorbon"><p>Active <span id="frontDoorTon"> -- : --</span> to <span id="Toff"> -- : --</span></p></div>
+        <div class="grid-item"><p>Back door light is currently <span id="backDoorStatus">OFF</span></p><img src="assets/lightoff.png" alt="light off" id="backDoorboff"><img src="assets/lighton.png" alt="light on" id="backDoorbon"><p>Active <span id="backDoorTon"> -- : --</span> to <span id="backDoorToff"> -- : --</span></p></div>
+        <div class="grid-item"><p>Garage door light is currently <span id="garageDoorStatus">OFF</span></p><img src="assets/lightoff.png" alt="light off" id="garageDoorboff"><img src="assets/lighton.png" alt="light on" id="garageDoorbon"><p>Active <span id="garageDoorTon"> -- : --</span> to <span id="garageDoorToff"> -- : --</span></p></div>
+        <div class="grid-item"><p>Kitchen fan is currently <span id="kitchenFanStatus">OFF</span></p><img src="assets/lightoff.png" alt="light off" id="kitchenFanboff"><img src="assets/lighton.png" alt="light on" id="kitchenFanbon"><p>Active <span id="kitchenFanTon"> -- : --</span> to <span id="kitchenFanToff"> -- : --</span></p></div>
+        <div class="grid-item"><p>Dining room light is currently <span id="diningRoomLightStatus">OFF</span></p><img src="assets/lightoff.png" alt="light off" id="diningRoomLightboff"><img src="assets/lighton.png" alt="light on" id="diningRoomLightbon"><p>Active <span id="diningRoomLightTon"> -- : --</span> to <span id="diningRoomLightToff"> -- : --</span></p></div>
+    </div>
+</body>
+</html>
