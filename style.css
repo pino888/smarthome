@@ -63,7 +63,7 @@ p {
 #time-element-off {
     border-radius: 5px;
 }
-#save-settings {
+button {
     border-radius: 5px;
     width: 85px;
     height: 27px;
@@ -151,9 +151,10 @@ p {
         width: 100%;
     }
 }
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 480px){
     body{
         flex-direction: column;
+        padding: 0px;
     }
     p{
         font-size: 0.7rem;
@@ -161,7 +162,35 @@ p {
     span{
         font-size: 0.7rem;
     }
+    label{
+        font-size: 0.8rem;
+    }
     .grid-item img{
         width: 45%;
+    }
+    .settings{
+        width: 98%;
+    }
+    .main-info{
+        padding: 0px;
+    }
+    .main-info h2{
+        font-size: 0.8rem;
+    }
+    #room {
+        font-size: 0.8rem;
+    }
+    input {
+        font-size: 0.8rem;
+    }
+    button{
+        font-size: 0.8rem;
+        width: fit-content;
+        height: fit-content;
+        padding: 2px;
+    }
+    .grid-container > div{
+        padding: 3px;
+        width: 30%;
     }
 }
