@@ -3,6 +3,7 @@ let selectedRoom = document.getElementById('room').value
 let timeElementOnString = document.getElementById('time-element-on')
 let timeElementOffString = document.getElementById('time-element-off')
 let saveButton = document.getElementById('save-settings')
+let resetButton = document.getElementById('reset-settings')
 
 let roomsArray = [
     {
@@ -10,7 +11,7 @@ let roomsArray = [
         active: false,
         timeOn: 0,
         timeOff: 0,
-        text: document.getElementById('living-room-text').innerHTML
+        text: document.getElementById('living-room-text').innerHTML // not used atm
     },
     {
         id: 'bedOneDeskLamp',
@@ -83,7 +84,7 @@ let roomsArray = [
         text: document.getElementById('dining-room-text').innerHTML
     }
 ]
-//localStorage.clear('storedRooms')
+
 let skaza = JSON.parse(localStorage.getItem("roomsArray"));
 
 if(skaza != null){
@@ -133,7 +134,10 @@ function setParameters(){
 
 // button setting times
 saveButton.onmouseup = setParameters;
-
+resetButton.onmouseup = () => {
+    localStorage.clear('roomsArray')
+    window.location.reload()
+}
 // update function every 0.5sec
 setInterval(function(){
     selectedRoom = document.getElementById('room').value
@@ -147,7 +151,7 @@ setInterval(function(){
     }
     for (let i = 0; i < roomsArray.length; i++){
         if(roomsArray[i].timeOn == 0){
-            roomsArray[i].statsOn.innerHTML = '-- : --'
+            document.getElementById(roomsArray[i].id+'Ton').innerHTML = '-- : --'
         }else{
             let displayTimeOnFull = roomsArray[i].timeOn.toString()
             let displayTimeOnH = displayTimeOnFull.slice(0, 2)
@@ -156,7 +160,7 @@ setInterval(function(){
             document.getElementById(roomsArray[i].id+'Ton').innerHTML = displayTimeOn
         }
         if(roomsArray[i].timeOff == 0){
-            roomsArray[i].statsOff.innerHTML = '-- : --'
+            document.getElementById(roomsArray[i].id+'Ton').innerHTML = '-- : --'
         }else{
             let displayTimeOffFull = roomsArray[i].timeOff.toString()
             let displayTimeOffH = displayTimeOffFull.slice(0, 2)
@@ -166,13 +170,11 @@ setInterval(function(){
         }
         if(currentTime >= roomsArray[i].timeOn && currentTime < roomsArray[i].timeOff){
             roomsArray[i].active = true
-            //console.log(roomsArray[i].text + ' turned on');
             document.getElementById(roomsArray[i].id+'Status').innerHTML = 'ON'
             document.getElementById(roomsArray[i].id+'bon').style.display = 'block'
             document.getElementById(roomsArray[i].id+'boff').style.display = 'none'
         }else{
             roomsArray[i].active = false
-            //console.log(roomsArray[i].text + ' turned off');
             document.getElementById(roomsArray[i].id+'Status').innerHTML = 'OFF'
             document.getElementById(roomsArray[i].id+'bon').style.display = 'none'
             document.getElementById(roomsArray[i].id+'boff').style.display = 'block'
